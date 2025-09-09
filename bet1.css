@@ -1,0 +1,638 @@
+ *{
+    /* margin: 0; */
+    padding: 0;
+    /* box-sizing: border-box; */
+  }
+  .container-2 {
+    /* max-width: 1200px; */
+    width: 100%;
+    /* margin: 2em; */
+  } 
+  .slider-wrapper .slide-button:hover {
+    background: #404040;
+  }
+  .slider-wrapper .slide-button#prev-slide {
+    left: -25px;
+    display: none;
+  }
+  .slider-wrapper .slide-button#next-slide {
+    right: -25px;
+  }
+  
+  .slider-wrapper .image-list {
+    display: flex;
+    /* display: grid; */
+    justify-content: space-between;
+    /* grid-template-columns: repeat(10, 1fr); */
+    gap: 18px;
+    /* font-size: 9em; */
+    /* height: 100px; */
+    list-style: none;
+    /* margin-bottom: 30px; */
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .slider-wrapper .image-list .image-item {
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  .slider-wrapper .image-list .image-item a{
+    text-decoration: none;
+    color: blue;
+    text-align: center;
+  }
+  .container-2 {
+    max-width: 1200px;
+    /* width: 100%; */
+    /* margin: 2em; */
+  }
+  
+  .slider-wrapper {
+    /* position: relative; */
+  }
+  
+  /* .slider-wrapper .slide-button {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    font-size: 2.2rem;
+    background: #000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+   */
+  /* .slider-wrapper .slide-button:hover {
+    background: #404040;
+  }
+  
+  .slider-wrapper .slide-button#prev-slide {
+    left: -25px;
+    display: none;
+  }
+  
+  .slider-wrapper .slide-button#next-slide {
+    right: -25px;
+  } */
+  
+  /* .container-2 .slider-scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slider-scrollbar .scrollbar-track {
+    background: #ccc;
+    width: 100%;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .slider-scrollbar:hover .scrollbar-track {
+    height: 4px;
+  }
+  
+  .slider-scrollbar .scrollbar-thumb {
+    position: absolute;
+    background: #000;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    cursor: grab;
+    border-radius: inherit;
+  }
+  
+  .slider-scrollbar .scrollbar-thumb:active {
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+  }
+  
+  .slider-scrollbar .scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+  } 
+  
+  
+  /* Styles for mobile and tablets */
+
+  
+
+  @media only screen and (max-width: 1023px) {
+    
+    .slider-wrapper .slide-button {
+      display: none !important;
+    }
+    .all{
+      /* background-color: red; */
+      margin: 0;
+      padding: 0;
+      /* overflow: hidden; */
+    }
+  
+    .slider-wrapper .image-list {
+      gap:10px;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      width: 100%;
+      /* height: 50px; */
+      scroll-snap-type: x mandatory;
+    }
+    .slider-wrapper .image-list .image-item .ii{
+        margin-left: 0.95em;
+        width: 2em;
+    }
+    .slider-wrapper .image-list  #image-item{
+        border: 1px solid rgb(92, 85, 85);
+        background-color: rgb(92, 85, 85);
+        margin-top: 0.1em;
+        height: 3.2em;
+        color: white;
+        border-top: 3px solid red;
+    }
+    .slider-wrapper .image-list #image-item h4{
+        margin-top: -0.3em;
+        width: 10em;
+        text-align: left;
+        font-size: 1em;
+        padding: 0em;
+        /* text-align: center; */
+    }
+    .slider-wrapper .image-list .image-item a{
+      /* margin-top: 0.47em; */
+      width: 100%;
+      /* margin-left: 10em; */
+      /* margin-right: 19.9em; */
+      /* text-align: center; */
+      font-size: 1em;
+    }
+    .slider-wrapper .image-list .image-item h4{
+      width: 100%;
+      margin-top: -1em;
+    }
+    .slider-scrollbar .scrollbar-thumb {
+      width: 20%;
+    }
+
+    .navel .image-list .image-item li{
+        margin: 0.15em;
+        list-style: none;
+    }
+    .navel ul li img{
+        width: 2em;
+    }
+    .navel ul li a{
+      text-decoration: none;
+        display: flex;
+        width: 100%;
+        border: 1px solid rgb(70, 68, 68);
+        background-color: rgb(70, 68, 68);
+        border-radius: 8px;
+    }
+    .navel .image-list #li a h5{
+        color: rgb(187, 26, 26);
+        font-size: 0.8em;
+        width: 13em;
+        /* margin-top: 0.65em; */
+    }
+    .slider-wrapper .image-list  #image-item1{
+        border: 1px solid rgb(92, 85, 85);
+        background-color: rgb(92, 85, 85);
+        margin-top: 0.1em;
+        padding: 0.2em;
+        width: 100%;
+        color: white;
+        border-top: 3px solid red;
+    }
+    .conti{
+      text-decoration: none;
+      color: white; 
+    }
+    .conti :hover{
+        text-decoration: none;
+    }
+    .hot{
+        display: flex;
+        margin: 0.6em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+    .klass{
+        padding: 1em 1.5em ;
+        color: white;
+        display: flex;
+        margin-top: -1.9em;
+        margin-left: -0.9em;
+        justify-content: space-between;
+    }
+    .team{
+      margin: 0.5em;
+    }
+    .team img{
+        width: 4em;
+        margin-left: 1.2em;
+    }
+    .team h3{
+        width: 4em;
+        text-align: center;
+        margin-top: -0.8em;
+        margin-left: 0.5em;
+        font: 1.2em sans-serif;
+        font-weight: 100;
+    }
+    .team button{
+        padding: 0.5em;
+        border-radius: 5px;
+        border:1.8px solid rgb(184, 159, 159);
+        width: 7em;
+        cursor: pointer;
+    }
+    .time{
+        margin-top: 2em;
+        /* height: 500em; */
+    }
+    .time h6{
+        text-align: center;
+        font-weight: 800;
+        font-size: 0.8em;
+        /* margin-bottom: 11.2em; */
+    }
+    .time .adjust{
+        margin-top: 0.7em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    .time button{
+        padding: 0.5em;
+        border-radius: 5px;
+        border:1.8px solid rgb(184, 159, 159);
+        width: 8em;
+        cursor: pointer;
+    }
+    .combine{
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-left: 2em;
+      margin: 0.5em;
+    }
+    .fix a h4{
+      text-decoration: none;
+      font-size: 211em; 
+      font-weight: 600;
+    }
+    #fix a h4{
+      text-decoration: none;
+      margin-top: -0.35em;
+    }
+    #fix a{
+      text-decoration: none;
+      /* margin-top: 0em; */
+    }
+    .full-det{
+      padding: 0.1em;
+      border: 1px solid grey;
+      border-top: none;
+    }
+    .num{
+      width: 100%;
+      background-color: rgb(167, 161, 161);
+      display: flex;
+      color: white;
+      justify-content: space-between;
+
+    }
+    .tue{
+      margin: 0.3em;
+    }
+    .tue h4{
+      font-size: 1em;
+      margin-top: 0.3em;
+    }
+    .dee{
+      display: flex;
+      justify-content: space-between;
+      width: 33.3%;
+      /* border: 1px solid grey; */
+      float: right;
+      margin-right: 1.8em;
+    }
+    .dee h3{
+      font-size: 1em;
+      margin-top: 0.5em;
+      margin-left: -1.5em;
+    }
+    .deel{
+      display: flex;
+      justify-content: space-between;
+      width: 33.3%;
+      /* border: 1px solid grey; */
+      float: right;
+      margin-right: 1.8em;
+    }
+    .deel h3{
+      font-size: 1em;
+      margin-top: 0.5em;
+    }
+    .details{
+      display: flex;
+      justify-content: space-between;
+      margin: 0.4em;
+      margin-top: 0.2em;
+    }
+    .full-det a{
+      color: black;
+      text-decoration: none;
+    }
+    .corn{
+      margin-top: -0.3em;
+      margin-left: 0.3em;
+    }
+    .let{
+      font-size: 1.2em;
+      margin: 0.4em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .let h1{
+      font-size: 0.8em;
+      /* display: flex */
+    }
+    .det h4{
+      font-size: 1em;
+    }
+    .ails{
+      /* margin-top: 0.4em; */
+    }
+    .ails .conbor button{
+      margin-top: 0.5em;
+      padding: 10px;
+      font-weight: 900;color: blue;
+      /* width: 4em; */
+      /* border-radius: 55em; */
+      cursor: pointer;
+    }
+    
+    .ed{
+      float: right;
+      margin: 1.5em 0.5em;
+    }
+  }
+  .section1a {
+    display: none;
+  }
+  .section1a.activee {
+    display: block;
+  }
+  
+
+  @media(max-width :375px){
+    .det h4{
+      font-size: 1em;
+    }
+    
+    .ails button{
+      padding: 10px;
+      width: 3.4em;
+    }
+    .navel{
+      /* overflow: hidden; */
+      width: 80%;
+  }
+  .navel ul {
+      display: flex;
+      
+  }
+  .navel ul li{
+      margin: 0.15em;
+      list-style: none;
+  }
+  .navel ul li img{
+      width: 3em;
+  }
+  .navel ul li a{
+      display: flex;
+      width: 100%;
+      border: 1px solid rgb(70, 68, 68);
+      background-color: rgb(70, 68, 68);
+      border-radius: 8px;
+  }
+  #li a h5{
+      color: white;
+      font-size: 0.6em;
+      padding: 0.2em;
+      margin-top: 0.65em;
+  }
+  toolkit::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    bottom: -15px;
+    left: 194px;
+    transform: rotate(45deg);
+  }
+  toolkit{
+    position: absolute;
+    bottom: 55px;
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateX(-50%)  translateY(-50px);
+  }
+  toolkit :hover {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%)  translateY(-50px);
+  }
+ 
+  }
+    /* Add your CSS styling here */
+    .bet-slip {
+      position: fixed;
+      /* right: -20px; */
+      bottom: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      /* padding: 20px; */
+      display: none; /* Initially hidden */
+    }
+    .bet-slip-item .bet-main {
+      display: flex;
+      justify-content: space-between;
+    }
+    .validation-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    .bet-slip-icon {
+      position: fixed;
+      right: 10px;
+      bottom: 9em;
+      margin: 20px;
+      padding: 10px 20px;
+      /* background-color: #007bff; */
+      color: white;
+      border: 0px 0px 0px 0px;
+      cursor: pointer;
+      /* border-radius: 50%; */
+      font-size: 20px;  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .bet-slip-icon .bet-count {
+      background-color: red;
+      color: white;
+      border-radius: 50px;
+      padding: 4px;
+      margin-left: 10px;
+      font-size: 14px;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .bet-slip-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+    .bet-slip-item .bet-details {
+      font-size: 12px;
+      color: #555;
+      margin-top: 18px;
+      margin-left: -4em;
+    }
+    .bet-slip-item .bet-mini {
+      font-size: 12px;
+      color: #555;
+      margin-top: 34px;
+      margin-left: -12.5em;
+    }
+    .bet-slip-total {
+      font-weight: bold;
+      margin-top: 10px;
+      margin: 5px;
+    }
+    #total-odds{
+      float: right;
+      margin-top: -1em;
+    }
+    #bet-amount{
+      float: right;
+      margin-top: -1em;
+    }
+    #potential-return{
+      float: right;
+      /* margin-top: -1em; */
+    }
+    .remove-bet {
+      cursor: pointer;
+      color: red;
+      margin-left: 10px;
+    }
+    
+    .bet-slip-total {
+      font-weight: bold;
+    }
+    
+    .remove-bet {
+      cursor: pointer;
+      color: red;
+      font-size: 3em;
+      margin-top: -0.25em;
+      margin-left: 1px;
+      padding-right: 8px;
+    }
+    
+    .validation-message {
+      color: red;
+      font-size: 0.8em;
+      float: right;
+      margin-left: 8px;
+      margin-top: -4px;
+    }
+    
+    .numeric-keypad {
+      display: none;
+      /* position: absolute; */
+      width: 35.2em;
+      /* background-color: red; */
+      border-top: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      margin: 0;
+      bottom: -200px; /* Adjust this based on the height of your bet slip */
+      /* z-index: 9; */
+    }
+    
+    .numeric-keypad button {
+      width: calc(15% - 1px);
+      /* border-left: 0; */
+      height: 19px;
+      /* padding: 2em; */
+      margin: -3px;
+      font-size: 8px;
+      cursor: pointer;
+    }
+    #clear-bet-slip{
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 5px;
+      /* padding-right: 1.8em; */
+      background-color: white;
+      font-size: larger;
+    }
+    #clear-bet-slip {
+    
+    }
+    .bet-types{
+      /* margin-right: 25px; */
+      margin: 10px;
+    }
+    .bet-types button{
+      padding: 10px;
+      width: 32%;
+    }
+    .bet-type-option {
+      cursor: pointer;
+    }
+    
+    .bet-type-option.active {
+      background-color: #0f0f10;
+      color: white;
+    }
+    

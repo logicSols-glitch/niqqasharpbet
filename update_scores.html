@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Management</title>
+</head>
+<body>
+
+    <!-- Form to Add a New Match -->
+    <form id="add-match-form" action="add_match.php" method="POST">
+        <label for="home_team">Home Team:</label>
+        <input type="text" name="home_team" id="home_team" required>
+        
+        <label for="away_team">Away Team:</label>
+        <input type="text" name="away_team" id="away_team" required>
+        
+        <label for="match_status">Match Status:</label>
+        <select name="match_status" id="match_status" required>
+            <option value="upcoming">Upcoming</option>
+            <option value="live">Live</option>
+            <option value="finished">Finished</option>
+        </select>
+        
+        <label for="match_start_time">Match Start Time:</label>
+        <input type="datetime-local" name="match_start_time" id="match_start_time" required>
+        
+        <label for="league">League:</label>
+        <input type="text" name="league" id="league" required>
+        
+        <button type="submit">Add Match</button>
+    </form>
+    
+    <!-- Form to Update an Existing Match -->
+    <form method="POST" action="update_scores.php">
+        <label for="match_id">Match ID:</label>
+        <input type="text" name="match_id" id="match_id" placeholder="Match ID" required>
+        
+        <label for="home_score">Home Score:</label>
+        <input type="number" name="home_score" id="home_score" placeholder="Home Score" required>
+        
+        <label for="away_score">Away Score:</label>
+        <input type="number" name="away_score" id="away_score" placeholder="Away Score" required>
+        
+        <label for="match_status">Match Status:</label>
+        <select name="match_status" id="match_status" required>
+            <option value="upcoming">Upcoming</option>
+            <option value="live">Live</option>
+            <option value="finished">Finished</option>
+        </select>
+        
+        <label for="match_time">Match Time:</label>
+        <input type="time" name="match_time" id="match_time" placeholder="Match Time" required>
+        
+        <label for="match_start_time">Match Start Time:</label>
+        <input type="datetime-local" name="match_start_time" id="match_start_time" required>
+        
+        <label for="league">League:</label>
+        <input type="text" name="league" id="league" required>
+        
+        <button type="submit">Update Match</button>
+    </form>
+
+</body>
+</html>

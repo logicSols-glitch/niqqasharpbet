@@ -1,0 +1,111 @@
+<div id="bet-history" class="bet-section">
+    <h1>Active Bet History</h1>
+    <div id="bet-history-content"></div>
+</div>
+
+<script>
+const POLL_INTERVAL = 15000; // 15 seconds
+
+function formatStatus(status) {
+    if (status === 'won') return '<span style="color:#28a745;font-weight:bold">Won</span>';
+    if (status === 'lost') return '<span style="color:#ff0033;font-weight:bold">Lost</span>';
+    return '<span style="color:#f0ad4e;font-weight:bold">Pending</span>';
+}
+
+function renderBet(bet, index) {
+    const container = document.getElementById('bet-history-content');
+    let existing = document.getElementById(`bet-${bet.bet_code}`);
+    if (!existing) {
+        existing = document.createElement('div');
+        existing.classList.add('bet-entry');
+        existing.id = `bet-${bet.bet_code}`;
+        container.appendChild(existing);
+    }
+
+    // Build inner HTML with live scores embedded per leg
+    const legsHtml = (bet.bet_details || []).map((detail, i) => {
+        const score = (detail.home_score !== null && detail.away_score !== null)
+            ? `${detail.home_score} - ${detail.away_score}`
+            : '-';
+        const timeDisplay = detail.match_status === 'live' ? (detail.time || 'Live') : detail.time || detail.match_status;
+        const legStatus = detail.leg_status || 'pending';
+
+        return `
+            <div class="bet-detail-item" data-match-id="${detail.match_id}">
+                <div style="flex:2;">
+                    <div><strong>${detail.base}</strong> @ <span class="bet-detail-odds">${detail.odds}</span></div>
+                    <div style="font-size:12px; color:#b0b0b0;">${detail.detail}</div>
+                </div>
+                <div style="flex:1; text-align:center;">
+                    <div>${detail.home_team} vs ${detail.away_team}</div>
+                    <div>Score: <span id="score-${detail.match_id}">${score}</span></div>
+                    <div>Time: <span id="time-${detail.match_id}">${timeDisplay}</span></div>
+                </div>
+                <div style="flex:0 0 80px; text-align:center;">
+                    ${formatStatus(legStatus)}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    existing.innerHTML = `
+        <h3>Bet Code: ${bet.bet_code}</h3>
+        <p><strong>Total Odds:</strong> ${bet.total_odds} &nbsp; | &nbsp; <strong>Bet Amount:</strong> $${bet.amount} &nbsp; | &nbsp; <strong>Potential Payout:</strong> $${bet.potential_payout}</p>
+        <p><strong>Overall Status:</strong> ${formatStatus(bet.bet_status)}</p>
+        <div class="action-icons">
+            <button class="cashout-btn" onclick="handleCashout('${bet.bet_code}')">
+                Cashout ${bet.cashout_amount ? 'NGN ' + bet.cashout_amount : ''}
+            </button>
+            <button class="icon-btn" onclick="handleEditBet('${bet.bet_code}')">&#9998; Edit</button>
+            <button class="icon-btn" onclick="handleShare('${bet.bet_code}')">&#128279; Share</button>
+        </div>
+        <button class="view-details-btn" data-index="${index}">View Details</button>
+        <div class="bet-details" id="details-${index}">
+            <h4>Event Details</h4>
+            ${legsHtml}
+        </div>
+    `;
+}
+
+async function refreshBetHistory() {
+    try {
+        const res = await fetch('get_live_bets.php', { credentials: 'include' });
+        if (!res.ok) {
+            console.error('Fetch error', res.status);
+            return;
+        }
+        const payload = await res.json();
+        const bets = payload.bets || [];
+
+        const container = document.getElementById('bet-history-content');
+        container.innerHTML = ''; // clear; simpler to avoid diffing
+
+        if (bets.length === 0) {
+            container.innerHTML = '<p>No active bets.</p>';
+        } else {
+            bets.forEach((bet, i) => renderBet(bet, i));
+            attachDetailToggle();
+        }
+    } catch (e) {
+        console.error('Error loading bet history:', e);
+    }
+}
+
+function attachDetailToggle() {
+    document.querySelectorAll('.view-details-btn').forEach(button => {
+        button.onclick = (event) => {
+            const index = event.target.dataset.index;
+            const details = document.getElementById(`details-${index}`);
+
+            document.querySelectorAll('.bet-details').forEach(d => {
+                if (d !== details) d.classList.remove('visible');
+            });
+            details.classList.toggle('visible');
+        };
+    });
+}
+
+// initial load + polling
+refreshBetHistory();
+setInterval(refreshBetHistory, POLL_INTERVAL);
+</script>
